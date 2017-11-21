@@ -13,16 +13,17 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Don't use both Activity registerReceiver() and Manifest registerReceiver() at a same time else app will crash.
     private static final String ActA="register_via_activity";
-    private static final String ActB="android.net.conn.CONNECTIVITY_CHANGE";
-    Intent a;
+//    private static final String ActB="android.net.conn.CONNECTIVITY_CHANGE";   //Copy String content from manifest
+    Intent a,b;
     Button status;
 
     @Override
     protected void onStart() {
         super.onStart();
         registerReceiver(new InternetConnect_Reciever(),new IntentFilter(ActA));
-        registerReceiver(new InternetConnect_Reciever(),new IntentFilter(ActB));
+//        registerReceiver(new InternetConnect_Reciever(),new IntentFilter(ActB));
     }
 
     @Override
@@ -33,13 +34,14 @@ public class MainActivity extends AppCompatActivity {
        status= (Button) findViewById(R.id.bt_status);
 
         a=new Intent(ActA);
-        a=new Intent(ActB);
+//        b=new Intent(ActB);
 
         status.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 sendBroadcast(a);
+//                sendBroadcast(b);
             }
         });
 
@@ -50,14 +52,5 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         unregisterReceiver(new InternetConnect_Reciever());
     }
-
-   /* BroadcastReceiver A= new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-
-        }
-    };*/
-
 
 }

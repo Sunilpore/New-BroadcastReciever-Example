@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class InternetConnect_Reciever extends BroadcastReceiver {
 
     private static final String ActA="register_via_activity";
-    private static final String ActB="android.net.conn.CONNECTIVITY_CHANGE";
+//    private static final String ActB="android.net.conn.CONNECTIVITY_CHANGE";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -23,7 +23,7 @@ public class InternetConnect_Reciever extends BroadcastReceiver {
 
             NetworkInfo nwinfo=cm.getActiveNetworkInfo();
 
-            Boolean isConnected= nwinfo!=null && nwinfo.isConnectedOrConnecting();
+            boolean isConnected= nwinfo!=null && nwinfo.isConnectedOrConnecting();
 
 
         if(intent.getAction().equals(ActA)) {
@@ -33,21 +33,19 @@ public class InternetConnect_Reciever extends BroadcastReceiver {
                 Toast.makeText(context, "Network is not connected", Toast.LENGTH_LONG).show();
 
         }
-        else if(intent.getAction().equals(ActB))
+        //This will used for manifest.For this comment the Activity register receiver else app will crash
+         /*else if(intent.getAction().equals(ActB))
         if (isConnected)
             Toast.makeText(context, "Network is connected via Manifest", Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(context, "Network is disconnected via Manifest ", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Network is disconnected via Manifest ", Toast.LENGTH_LONG).show();*/
     }
 
 
 
 }
 
-
-
-
-    /*//This can used when not implement 'BroadcastReceiver' to class 'InternetConnect_Reciever' class
+    /*//This can used when not implement 'BroadcastReceiver' to class 'InternetConnect_Reciever'.
     BroadcastReceiver A=new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
