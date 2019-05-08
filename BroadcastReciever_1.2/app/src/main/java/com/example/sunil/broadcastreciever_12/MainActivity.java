@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.sunil.broadcastreciever_12.explicit.ExplicitBroadcastActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String ActA="register_via_activity_A";
@@ -49,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 sendBroadcast(a);
             }
         });
+
+        Intent i = new Intent(this, ExplicitBroadcastActivity.class);
+        startActivity(i);
     }
 
 
@@ -95,4 +100,5 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         unregisterReceiver(new Networkstatus());
     }
+    
 }

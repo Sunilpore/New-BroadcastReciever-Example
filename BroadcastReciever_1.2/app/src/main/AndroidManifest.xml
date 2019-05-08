@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sunil.broadcastreciever_12">
-
-
     <!-- This permissions are neccessary for broadcast receiver -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,19 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".explicit.ExplicitBroadcastActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Broadcast receiver declaration in manifest file and make sure to enable it -->
+        </activity> <!-- Broadcast receiver declaration in manifest file and make sure to enable it -->
         <receiver
             android:name=".Networkstatus"
-            android:label="Networkstatus"
-            android:enabled="true" >
+            android:enabled="true"
+            android:label="Networkstatus">
             <intent-filter>
 
                 <!-- Intent filters for broadcast receiver -->
@@ -34,7 +31,7 @@
                 <action android:name="android.net.wifi.STATE_CHANGE" />
             </intent-filter>
         </receiver>
-
+        <receiver android:name=".explicit.ExampleBroadcastReciever"/>
     </application>
 
 </manifest>
