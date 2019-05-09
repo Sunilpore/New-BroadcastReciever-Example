@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".explicit.ExplicitBroadcastActivity"></activity>
+        <activity android:name=".order_broadcast.OrderedBroadcastActivity"></activity>
+        <activity android:name=".explicit.ExplicitBroadcastActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +32,7 @@
                 <action android:name="android.net.wifi.STATE_CHANGE" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".explicit.ExampleBroadcastReciever"/>
+        <receiver android:name=".explicit.ExampleBroadcastReciever" />
     </application>
 
 </manifest>

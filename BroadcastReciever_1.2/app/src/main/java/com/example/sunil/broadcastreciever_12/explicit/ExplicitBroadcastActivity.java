@@ -60,7 +60,7 @@ public class ExplicitBroadcastActivity extends AppCompatActivity {
 
 
         //when want to deliver action for various app
-        Intent i2 = new Intent("firebase.com.EXAMPLE_ACTION");
+        Intent i2 = new Intent("firebase.com.EXAMPLE_ACTION_EXPLICIT");
         PackageManager packageManager = getPackageManager();
 
         List<ResolveInfo> infos = packageManager.queryBroadcastReceivers(i2,0);

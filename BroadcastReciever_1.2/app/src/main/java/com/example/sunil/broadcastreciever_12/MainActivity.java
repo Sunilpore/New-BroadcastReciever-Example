@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.sunil.broadcastreciever_12.explicit.ExplicitBroadcastActivity;
+import com.example.sunil.broadcastreciever_12.order_broadcast.OrderedBroadcastActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Intent i = new Intent(this, ExplicitBroadcastActivity.class);
+        Intent i = new Intent(this, OrderedBroadcastActivity.class);
         startActivity(i);
     }
 

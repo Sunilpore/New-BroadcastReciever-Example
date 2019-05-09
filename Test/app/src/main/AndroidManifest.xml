@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,10 +18,21 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".ExampleBroadcastReciever"
-            android:exported="true">
+        <receiver android:name=".OrderedReciever1">
             <intent-filter>
-                <action android:name="firebase.com.EXAMPLE_ACTION"/>
+                <action android:name="firebase.com.EXAMPLE_ACTION_ORDER_RECIEVER"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".OrderedReciever2">
+            <intent-filter android:priority="2">
+                <action android:name="firebase.com.EXAMPLE_ACTION_ORDER_RECIEVER"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".OrderedReciever3">
+            <intent-filter android:priority="3">
+                <action android:name="firebase.com.EXAMPLE_ACTION_ORDER_RECIEVER"/>
             </intent-filter>
         </receiver>
 
